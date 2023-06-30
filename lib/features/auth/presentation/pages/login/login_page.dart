@@ -22,10 +22,9 @@ class LoginPage extends StatelessWidget {
   _buildBody() {
     return BlocBuilder<LoginCubit, LoginState>(
       builder: (context, state) {
-        return Container(
-          margin: const EdgeInsets.only(top: 100, left: 20, right: 20),
-          height: double.infinity,
-          child: const LoginForm(),
+        return const Padding(
+          padding: EdgeInsets.only(top: 100, left: 20, right: 20),
+          child: LoginForm(),
         );
       },
     );
