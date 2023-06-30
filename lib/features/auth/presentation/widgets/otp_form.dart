@@ -79,7 +79,9 @@ class _OtpFormState extends State<OtpForm> {
             ),
           ),
         ),
-        const SizedBox(height: 25,),
+        const SizedBox(
+          height: 25,
+        ),
         MaterialButton(
           color: Colors.yellow,
           shape: RoundedRectangleBorder(
@@ -93,7 +95,30 @@ class _OtpFormState extends State<OtpForm> {
               color: Colors.black,
             ),
           ),
-        )
+        ),
+        const SizedBox(height: 25,),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              'Haven\'t received any code yet?',
+              style: GoogleFonts.poppins(color: Colors.black, fontSize: 14),
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            GestureDetector(
+              child: Text(
+                'Resend Code',
+                style: GoogleFonts.poppins(
+                  color: Colors.blue,
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
+        ),
       ],
     );
   }
