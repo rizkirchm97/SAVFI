@@ -3,14 +3,17 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:savfi/features/auth/presentation/bloc/login_bloc/login_cubit.dart';
 import 'package:savfi/features/auth/presentation/bloc/otp_bloc/otp_cubit.dart';
+import 'package:savfi/features/auth/presentation/bloc/register_bloc/register_cubit.dart';
 import 'package:savfi/features/auth/presentation/pages/login/login_page.dart';
 import 'package:savfi/features/auth/presentation/pages/otp/otp_page.dart';
 import 'app_module.dart' as di;
 
 import 'app_module.dart';
+import 'features/auth/presentation/pages/register/register_page.dart';
 
 Future<void> main() async {
   await di.init();
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -39,7 +42,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const LoginPage(),
+        home: const OtpPage(),
       ),
     );
   }
@@ -47,5 +50,6 @@ class MyApp extends StatelessWidget {
   List<BlocProvider>_getProviders() => [
     BlocProvider<LoginCubit>(create: (_) => sl<LoginCubit>()),
     BlocProvider<OtpCubit>(create: (_) => sl<OtpCubit>()),
+    BlocProvider<RegisterCubit>(create: (_) => sl<RegisterCubit>()),
   ];
 }

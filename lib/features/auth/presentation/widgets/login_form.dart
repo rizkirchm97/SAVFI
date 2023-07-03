@@ -21,6 +21,10 @@ class _LoginFormState extends State<LoginForm> {
           decoration: InputDecoration(
             counterText: '',
             hintText: 'Input phone number',
+            hintStyle: GoogleFonts.poppins(
+                fontSize: 14,
+                fontWeight: FontWeight.w600
+            ),
             filled: true,
             fillColor: Colors.yellow,
             border: OutlineInputBorder(
@@ -33,6 +37,7 @@ class _LoginFormState extends State<LoginForm> {
           height: 20,
         ),
         MaterialButton(
+          height: 50,
           color: Colors.yellow,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
@@ -43,6 +48,7 @@ class _LoginFormState extends State<LoginForm> {
             style: GoogleFonts.poppins(
               fontSize: 14,
               color: Colors.black,
+                fontWeight: FontWeight.w500
             ),
           ),
         ),

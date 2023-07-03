@@ -83,6 +83,7 @@ class _OtpFormState extends State<OtpForm> {
           height: 25,
         ),
         MaterialButton(
+          height: 50,
           color: Colors.yellow,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
@@ -93,6 +94,7 @@ class _OtpFormState extends State<OtpForm> {
             style: GoogleFonts.poppins(
               fontSize: 14,
               color: Colors.black,
+              fontWeight: FontWeight.w500
             ),
           ),
         ),
@@ -101,7 +103,7 @@ class _OtpFormState extends State<OtpForm> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Haven\'t received any code yet?',
+              'Haven\'t received any code?',
               style: GoogleFonts.poppins(color: Colors.black, fontSize: 14),
             ),
             const SizedBox(
@@ -116,6 +118,7 @@ class _OtpFormState extends State<OtpForm> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+
             ),
           ],
         ),
