@@ -6,14 +6,16 @@ import 'package:savfi/features/auth/presentation/bloc/otp_bloc/otp_cubit.dart';
 import 'package:savfi/features/auth/presentation/bloc/register_bloc/register_cubit.dart';
 import 'package:savfi/features/auth/presentation/pages/login/login_page.dart';
 import 'package:savfi/features/auth/presentation/pages/otp/otp_page.dart';
+import 'package:savfi/features/splashscreen/presentation/pages/splash_screen_page.dart';
+import 'package:savfi/features/splashscreen/presentation/widgets/splash_screen_control.dart';
 import 'app_module.dart' as di;
 
 import 'app_module.dart';
 import 'features/auth/presentation/pages/register/register_page.dart';
 
 Future<void> main() async {
-  await di.init();
   WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
   runApp(const MyApp());
 }
 
@@ -42,7 +44,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const OtpPage(),
+        home: const SplashScreenPage(),
       ),
     );
   }
