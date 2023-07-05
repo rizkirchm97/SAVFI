@@ -1,25 +1,29 @@
-abstract class Resources{}
+abstract class Resources<T>{}
 enum DataStatus {LOADING, SUCCESS, ERROR, EMPTY}
 
-class SuccessResource extends Resources {
-  final DataStatus status;
+class SuccessResource<T> extends Resources<T> {
+  final DataStatus? status;
+  final T? data;
 
-  SuccessResource(this.status);
+  SuccessResource({this.status, this.data});
 }
 
-class LoadingResource extends Resources {
+class LoadingResource<T> extends Resources<T> {
   final DataStatus status;
 
   LoadingResource(this.status);
 }
 
-class ErrorResource extends Resources {
-  final DataStatus status;
+class ErrorResource<T> extends Resources<T> {
+  final DataStatus? status;
+  final T? data;
+  final String? errorMessage;
 
-  ErrorResource(this.status);
+
+  ErrorResource({this.errorMessage, this.status, this.data});
 }
 
-class EmptyResource extends Resources {
+class EmptyResource<T> extends Resources<T> {
   final DataStatus status;
 
   EmptyResource(this.status);
