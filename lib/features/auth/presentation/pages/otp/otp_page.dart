@@ -1,9 +1,11 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:savfi/features/auth/presentation/bloc/otp_bloc/otp_cubit.dart';
 import 'package:savfi/features/auth/presentation/bloc/otp_bloc/otp_state.dart';
 import 'package:savfi/features/auth/presentation/widgets/otp_form.dart';
 
+@RoutePage()
 class OtpPage extends StatelessWidget {
   const OtpPage({Key? key}) : super(key: key);
 

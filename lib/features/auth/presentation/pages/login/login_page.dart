@@ -1,9 +1,11 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:savfi/features/auth/presentation/bloc/login_bloc/login_cubit.dart';
 import 'package:savfi/features/auth/presentation/bloc/login_bloc/login_state.dart';
 import 'package:savfi/features/auth/presentation/widgets/login_form.dart';
 
+@RoutePage()
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
