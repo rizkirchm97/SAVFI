@@ -6,8 +6,10 @@ import 'package:savfi/features/auth/presentation/bloc/otp_bloc/otp_cubit.dart';
 import 'package:savfi/features/auth/presentation/bloc/register_bloc/register_cubit.dart';
 import 'package:savfi/features/auth/presentation/pages/login/login_page.dart';
 import 'package:savfi/features/auth/presentation/pages/otp/otp_page.dart';
+import 'package:savfi/features/splashscreen/presentation/bloc/splash_screen_cubit.dart';
 import 'package:savfi/features/splashscreen/presentation/pages/splash_screen_page.dart';
 import 'package:savfi/features/splashscreen/presentation/widgets/splash_screen_control.dart';
+import 'package:savfi/route/routes_imports.dart';
 import 'app_module.dart' as di;
 
 import 'app_module.dart';
@@ -16,11 +18,13 @@ import 'features/auth/presentation/pages/register/register_page.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await di.init();
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+   MyApp({super.key});
+
+  final _appRouter = AppRouter();
 
   // This widget is the root of your application.
   @override
@@ -35,16 +39,18 @@ class MyApp extends StatelessWidget {
       systemNavigationBarIconBrightness: Brightness.dark, // status bar color
     ));
 
+
+
     return MultiBlocProvider(
       providers: _getProviders(),
-      child: MaterialApp(
+      child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         title: 'Savfi App',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const SplashScreenPage(),
+        routerConfig: _appRouter.config(),
       ),
     );
   }
@@ -53,5 +59,19 @@ class MyApp extends StatelessWidget {
     BlocProvider<LoginCubit>(create: (_) => sl<LoginCubit>()),
     BlocProvider<OtpCubit>(create: (_) => sl<OtpCubit>()),
     BlocProvider<RegisterCubit>(create: (_) => sl<RegisterCubit>()),
+    BlocProvider<SplashScreenCubit>(create: (_) => sl<SplashScreenCubit>()),
   ];
+
+   Future<Widget> buildSplash({
+    required int durationInMilliseconds,
+    required Function() initialWidget,
+    required Function() nextWidget,
+  }) async {
+
+    return await Future.delayed(Duration(milliseconds: durationInMilliseconds), (){
+      return initialWidget();
+    }).then((_) => nextWidget());
+
+
+  }
 }
