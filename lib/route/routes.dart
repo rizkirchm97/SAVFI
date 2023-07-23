@@ -7,7 +7,7 @@ class AppRouter extends $AppRouter {
 
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(page: SplashRouteRoute.page, initial: true),
+        AutoRoute(page: SplashRouteRoute.page),
         CustomRoute(
           page: LoginRoute.page,
           transitionsBuilder: TransitionsBuilders.slideBottom,
@@ -15,5 +15,15 @@ class AppRouter extends $AppRouter {
         ),
         AutoRoute(page: RegisterRoute.page),
         AutoRoute(page: OtpRoute.page),
+        AutoRoute(
+          page: DashboardRoute.page,
+          children: [
+            AutoRoute(page: HomeRoute.page, initial: true),
+            AutoRoute(page: NoteAndTrackRoute.page),
+            AutoRoute(page: NotificationRoute.page),
+            AutoRoute(page: ProfileRoute.page),
+          ],
+          initial: true,
+        ),
       ];
 }

@@ -6,6 +6,7 @@ import 'package:savfi/features/auth/presentation/bloc/otp_bloc/otp_cubit.dart';
 import 'package:savfi/features/auth/presentation/bloc/register_bloc/register_cubit.dart';
 import 'package:savfi/features/auth/presentation/pages/login/login_page.dart';
 import 'package:savfi/features/auth/presentation/pages/otp/otp_page.dart';
+import 'package:savfi/features/dashboard/presentation/bloc/dashboard_cubit.dart';
 import 'package:savfi/features/splashscreen/presentation/bloc/splash_screen_cubit.dart';
 import 'package:savfi/features/splashscreen/presentation/pages/splash_screen_page.dart';
 import 'package:savfi/features/splashscreen/presentation/widgets/splash_screen_control.dart';
@@ -60,6 +61,7 @@ class MyApp extends StatelessWidget {
     BlocProvider<OtpCubit>(create: (_) => sl<OtpCubit>()),
     BlocProvider<RegisterCubit>(create: (_) => sl<RegisterCubit>()),
     BlocProvider<SplashScreenCubit>(create: (_) => sl<SplashScreenCubit>()),
+    BlocProvider<DashboardCubit>(create: (_) => sl<DashboardCubit>()),
   ];
 
    Future<Widget> buildSplash({

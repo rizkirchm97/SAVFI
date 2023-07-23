@@ -4,6 +4,7 @@ import 'package:savfi/core/helper/ticker.dart';
 import 'package:savfi/features/auth/presentation/bloc/login_bloc/login_cubit.dart';
 import 'package:savfi/features/auth/presentation/bloc/otp_bloc/otp_cubit.dart';
 import 'package:savfi/features/auth/presentation/bloc/register_bloc/register_cubit.dart';
+import 'package:savfi/features/dashboard/presentation/bloc/dashboard_cubit.dart';
 import 'package:savfi/features/splashscreen/presentation/bloc/splash_screen_cubit.dart';
 
 final sl = GetIt.instance;
@@ -18,5 +19,6 @@ Future<void> init() async {
   sl.registerFactory(() => OtpCubit());
   sl.registerFactory(() => RegisterCubit());
   sl.registerFactory(() => SplashScreenCubit(ticker: sl()));
+  sl.registerFactory(() => DashboardCubit());
 
 }
