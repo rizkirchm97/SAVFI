@@ -1,11 +1,17 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:savfi/route/routes_imports.gr.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
 
   @override
   State<LoginForm> createState() => _LoginFormState();
+}
+
+_onPressButtonLogin(BuildContext ctx) {
+  ctx.router.push(const OtpRoute());
 }
 
 class _LoginFormState extends State<LoginForm> {
@@ -21,10 +27,8 @@ class _LoginFormState extends State<LoginForm> {
           decoration: InputDecoration(
             counterText: '',
             hintText: 'Input phone number',
-            hintStyle: GoogleFonts.poppins(
-                fontSize: 14,
-                fontWeight: FontWeight.w600
-            ),
+            hintStyle:
+                GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w600),
             filled: true,
             fillColor: Colors.yellow,
             border: OutlineInputBorder(
@@ -42,14 +46,11 @@ class _LoginFormState extends State<LoginForm> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          onPressed: () {},
+          onPressed:() {_onPressButtonLogin(context);} ,
           child: Text(
             'Login',
             style: GoogleFonts.poppins(
-              fontSize: 14,
-              color: Colors.black,
-                fontWeight: FontWeight.w500
-            ),
+                fontSize: 14, color: Colors.black, fontWeight: FontWeight.w500),
           ),
         ),
         // const SizedBox(

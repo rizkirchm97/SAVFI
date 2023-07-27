@@ -12,18 +12,18 @@ class AppRouter extends $AppRouter {
           page: LoginRoute.page,
           transitionsBuilder: TransitionsBuilders.slideBottom,
           durationInMilliseconds: 600,
+          initial: true,
         ),
         AutoRoute(page: RegisterRoute.page),
         AutoRoute(page: OtpRoute.page),
         AutoRoute(
           page: DashboardRoute.page,
           children: [
-            AutoRoute(page: HomeRoute.page, initial: true),
+            AutoRoute(page: HomeRoute.page),
             AutoRoute(page: NoteAndTrackRoute.page),
             AutoRoute(page: NotificationRoute.page),
             AutoRoute(page: ProfileRoute.page),
           ],
-          initial: true,
         ),
       ];
 }
